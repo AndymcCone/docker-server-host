@@ -1,4 +1,4 @@
-/bcreate own network:/b
+create own network:
 
   docker network create --driver bridge omanetti
 
