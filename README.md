@@ -2,7 +2,7 @@
 ```
   docker network create --driver bridge omanetti
 ```
-**server app:**
+**server app: <sub>(in the server directory)</sub>**
 ```
   docker build -t server .
   docker run -d --name server --network omanetti server
