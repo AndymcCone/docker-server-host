@@ -1,7 +1,7 @@
 **create network:**
-
+```
   docker network create --driver bridge omanetti
-
+```
 **server app:**
 
   docker build -t server .
