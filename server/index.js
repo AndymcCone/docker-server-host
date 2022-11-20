@@ -14,7 +14,7 @@ function generateString(length) {
     return result;
 }
 
-fs.writeFile("./serverdata/response.txt", generateString(1000), (err) => {
+fs.writeFile("./response.txt", generateString(1000), (err) => {
   if (err) {
     console.error(err);
     return;
@@ -22,7 +22,7 @@ fs.writeFile("./serverdata/response.txt", generateString(1000), (err) => {
 });
 
 app.get('/download', function(req, res){
-  const file = `./serverdata/response.txt`;
+  const file = `response.txt`;
   res.download(file);
 });
 

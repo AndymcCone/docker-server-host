@@ -1,6 +1,6 @@
 FROM node:slim
 
-WORKDIR /nodetest
+WORKDIR /serverdata
 COPY . .
 
 RUN npm install nodemon

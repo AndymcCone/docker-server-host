@@ -5,7 +5,7 @@
 **server app: <sub>(in the server directory)</sub>**
 ```
   docker build -t server .
-  docker run -d --name server --network omanetti server
+  docker run -v $(pwd)/serverdata/response.txt:/serverdata/response.txt  -d --name server --network omanetti server
 ```
 
 **client app: <sub>(in the client directory)</sub>**
