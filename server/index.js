@@ -1,3 +1,5 @@
+const { createHash } = require('crypto');
+
 const express = require('express');
 const fs = require("fs");
 const app = express();
@@ -14,7 +16,21 @@ function generateString(length) {
     return result;
 }
 
-fs.writeFile("./response.txt", generateString(1000), (err) => {
+function hash(string) {
+  return createHash('sha256').update(string).digest('hex');
+}
+
+responsetext = generateString(1000)
+hashtext = hash(responsetext)
+
+fs.writeFile("./response.txt", responsetext, (err) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+});
+
+fs.writeFile("./checksum.txt", hashtext, (err) => {
   if (err) {
     console.error(err);
     return;
@@ -23,6 +39,11 @@ fs.writeFile("./response.txt", generateString(1000), (err) => {
 
 app.get('/download', function(req, res){
   const file = `response.txt`;
+  res.download(file);
+});
+
+app.get('/checksum', function(req, res){
+  const file = `checksum.txt`;
   res.download(file);
 });
 
