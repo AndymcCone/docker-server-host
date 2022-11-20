@@ -1,17 +1,6 @@
-**create network:**
+**Building the enviroment:<sub>(in the project root folder)</sub>**
 ```
-  docker network create --driver bridge omanetti
-```
-**server app: <sub>(in the server directory)</sub>**
-```
-  docker build -t server .
-  docker run -v $(pwd)/serverdata/response.txt:/serverdata/response.txt  -d --name server --network omanetti server
+  ./server.sh
+  ./client.sh
 ```
 
-**client app: <sub>(in the client directory)</sub>**
-```
-  docker build -t client .
-  docker run -v $(pwd)/clientdata:/clientdata --name client --network omanetti client
-```
-
-echo "$(<downloaded_checksum.txt )" response.txt | sha256sum -c
