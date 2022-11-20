@@ -11,5 +11,5 @@
 **client app: <sub>(in the client directory)</sub>**
 ```
   docker build -t client .
-  docker run -v $(pwd)/response.txt:/clientdata/response.txt --name client --network omanetti client
+  docker run -v $(pwd)/clientdata/response.txt:/clientdata/response.txt --name client --network omanetti client
 ```
