@@ -17,9 +17,9 @@ docker build -t client client/.
 sleep 0.5;
 
 echo "running client"
-docker run -v $(pwd)/client/clientdata:/clientdata --name client --network omanetti client
+docker run -v $(pwd)/client/clientvol:/clientdata --name client --network omanetti client
 sleep 0.5;
 
 echo "checksumming"
-echo "$(<$(pwd)/client/clientdata/downloaded_checksum.txt )" $(pwd)/client/clientdata/response.txt | sha256sum -c
+echo "$(<$(pwd)/client/clientvol/downloaded_checksum.txt )" $(pwd)/client/clientvol/response.txt | sha256sum -c
 sleep 0.5;
