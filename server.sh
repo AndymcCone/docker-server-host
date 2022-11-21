@@ -24,6 +24,7 @@ docker build -t server server/.
 sleep 0.5;
 
 echo "running server"
+mkdir $(pwd)/server/servervol
 echo "" > $(pwd)/server/servervol/response.txt
 docker run -v $(pwd)/server/servervol/response.txt:/serverdata/response.txt -d --name server --network omanetti -p $port:80 server
 sleep 0.5;
