@@ -20,6 +20,6 @@ echo "running client"
 docker run -v $(pwd)/client/clientvol:/clientdata --name client --network omanetti client
 sleep 0.5;
 
-echo "checksumming"
+echo "Comparing checksums"
 echo "$(<$(pwd)/client/clientvol/downloaded_checksum.txt )" $(pwd)/client/clientvol/response.txt | sha256sum -c
 sleep 0.5;
